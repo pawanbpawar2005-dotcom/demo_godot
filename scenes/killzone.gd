@@ -1,8 +1,9 @@
 extends Area2D
-
+@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @onready var timer = $Timer
 func _on_body_entered(body: Node2D) -> void:
+	audio_stream_player.play()
 	print("You died!")
 	Engine.time_scale = 0.5
 	body.get_node("CollisionShape2D").queue_free()
